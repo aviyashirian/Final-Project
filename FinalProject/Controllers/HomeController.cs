@@ -23,7 +23,12 @@ namespace FinalProject.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Store()
+        {
+            return View();
+        }
+
+        public IActionResult About()
         {
             return View();
         }
