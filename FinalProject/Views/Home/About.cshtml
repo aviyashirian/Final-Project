@@ -3,8 +3,13 @@
 }
 <h1>@ViewData["Title"]</h1>
 
-<p>We are happy to announce the opening of the new colman store!<br />
+<p>
+    We are happy to announce the opening of the new colman store!<br />
     This store was created in order to have a platform were students can easly buy the books they want to read.
-    </p>
+</p>
 
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3384.6721508901333!2d34.77320748550462!3d31.969789832012108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502b6ea7e5d0f75%3A0xb7f11f0f883d9111!2z15TXnteb15zXnNeUINec157Xmdeg15TXnCDXqNeQ16nXldefINec16bXmdeV158!5e0!3m2!1siw!2sil!4v1621673656578!5m2!1siw!2sil" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+@foreach (var store in ViewData["stores"] as IEnumerable<Store>)
+{
+    <div>@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(@store))</div>
+}

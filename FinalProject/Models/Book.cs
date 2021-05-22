@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace FinalProject.Models
 {
     public class Book
     {
+        [Key]
         public int Id { get; set; }
 
         public string Name { get; set; }
@@ -15,7 +17,7 @@ namespace FinalProject.Models
 
         public string Language { get; set; }
 
-        //public List<string> Genre{ get; set; }
+        public List<Genre> Genres { get; set; }
 
         public DateTime PublishedDate { get; set; }
 

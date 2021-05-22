@@ -6,16 +6,20 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using FinalProject.Models;
+using FinalProject.Data;
+using FinalProject.BL;
 
 namespace FinalProject.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly StoresBL _storesBL;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, BookStoreDbContext bookStoreDb)
         {
             _logger = logger;
+            _storesBL = new StoresBL(bookStoreDb);
         }
 
         public IActionResult Index()
@@ -30,6 +34,7 @@ namespace FinalProject.Controllers
 
         public IActionResult About()
         {
+            ViewData["stores"] = this._storesBL.GetAll();
             return View();
         }
 
